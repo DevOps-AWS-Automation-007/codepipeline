@@ -11,10 +11,10 @@ phases:
     - echo Logging in to Amazon ECR.... 
     - aws --version
     # update the following line with your own region
-    - $(aws ecr get-login --no-include-email --region eu-west-1)
+    - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 093611920687.dkr.ecr.us-east-1.amazonaws.com
     - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
     - IMAGE_TAG=${COMMIT_HASH:=latest}
-    - REPOSITORY_URI=123456789.dkr.ecr.eu-west-1.amazonaws.com/sample/sampleapp 
+    - REPOSITORY_URI=093611920687.dkr.ecr.us-east-1.amazonaws.com/flaskapp
   build: 
     commands: 
     - echo Build started on `date` 
