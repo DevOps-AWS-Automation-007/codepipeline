@@ -34,6 +34,8 @@ phases:
     - echo Writing image definitions file... 
     #- printf '[{"ImageURI":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imageDetail.json
     - printf '[{"name":"flaskapp","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+    - cat imagedefinitions.json
+    - echo $CODEBUILD_SRC_DIR
 artifacts:
   files:
-    - imagedefinitons.json
+    - $CODEBUILD_SRC_DIR/imagedefinitions.json
