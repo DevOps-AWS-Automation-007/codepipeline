@@ -33,10 +33,16 @@ phases:
     - docker push $REPOSITORY_URI:latest
     # - docker push $REPOSITORY_URI:$IMAGE_TAG
     - echo Writing image definitions file... 
+    
+    - ImageURI=$(cat imageDetail.json | jq -r '.ImageURI')
+    - printf '[{"name":"flaskapp","imageUri":"IMAGE_URI"}]' > imagedefinitions.json
+    - sed -i -e "s|flaskapp|flaskapp|g" imagedefinitions.json
+    - sed -i -e "s|IMAGE_URI|$ImageURI|g" imagedefinitions.json
+    - cat imagedefinitions.json
     #- printf '[{"ImageURI":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imageDetail.json
     #- printf '[{"name":"flaskapp","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
     #- cat imagedefinitions.json
-    - echo $CODEBUILD_SRC_DIR
+    # - echo $CODEBUILD_SRC_DIR
 artifacts:
   files:
-    - '**/*'
+    - imagedefinitions.json
