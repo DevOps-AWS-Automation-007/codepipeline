@@ -28,11 +28,12 @@ phases:
     - echo Build completed on `date` 
     - echo pushing to repo
     # update the following line with the URI of your own ECR repository
+    - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 093611920687.dkr.ecr.us-east-1.amazonaws.com
     - docker push $REPOSITORY_URI:latest
-    - docker push $REPOSITORY_URI:$IMAGE_TAG
+    # - docker push $REPOSITORY_URI:$IMAGE_TAG
     - echo Writing image definitions file... 
     #- printf '[{"ImageURI":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imageDetail.json
-    - printf '{"ImageURI":"%s"}' $REPOSITORY_URI:$IMAGE_TAG > imageDetail.json
+    - printf '[{"name":"flaskapp","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 artifacts:
   files:
-    - imageDetail.json
+    - imagedefinitons.json
