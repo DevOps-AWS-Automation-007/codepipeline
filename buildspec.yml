@@ -35,9 +35,9 @@ phases:
     - echo Writing image definitions file... 
     
     - ImageURI=$(cat imageDetail.json | jq -r '.ImageURI')
-    - printf '[{"name":"flaskapp","imageUri":"IMAGE_URI"}]' > imagedefinitions.json
+    - printf '[{"name":"flaskapp","imageUri":"093611920687.dkr.ecr.us-east-1.amazonaws.com/flaskapp:latest"}]' > imagedefinitions.json
     - sed -i -e "s|flaskapp|flaskapp|g" imagedefinitions.json
-    - sed -i -e "s|IMAGE_URI|$ImageURI|g" imagedefinitions.json
+    - sed -i -e "s|093611920687.dkr.ecr.us-east-1.amazonaws.com/flaskapp:latest|093611920687.dkr.ecr.us-east-1.amazonaws.com/flaskapp:latest|g" imagedefinitions.json
     - cat imagedefinitions.json
     #- printf '[{"ImageURI":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imageDetail.json
     #- printf '[{"name":"flaskapp","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
