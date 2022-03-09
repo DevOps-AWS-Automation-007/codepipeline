@@ -1,3 +1,3 @@
 {
-"ImageURI": "093611920687.dkr.ecr.us-east-1.amazonaws.com/flaskapp:latest"
+"ImageURI": "093611920687.dkr.ecr.us-east-1.amazonaws.com/flaskapp@sha256:latest"
 }
