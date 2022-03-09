@@ -1,3 +1,11 @@
 {
-"ImageURI": "093611920687.dkr.ecr.us-east-1.amazonaws.com/flaskapp@sha256:latest"
+    "ImageSizeInBytes": "354440000",
+    "ImageDigest": "sha256:8360f3b6a6139d7afe49f92e212cf2b2ea53fb2a7c588449a57bedd976710384",
+    "Version": "1.0",
+    "ImagePushedAt": "March 03, 2022, 18:45:08 (UTC+05.5)",
+    "RepositoryName": "flaskapp",
+    "ImageURI": "093611920687.dkr.ecr.us-east-1.amazonaws.com/flaskapp@sha256:latest",
+    "ImageTags": [
+        "latest"
+    ]
 }
